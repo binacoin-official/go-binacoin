@@ -71,8 +71,27 @@ var (
 		BerlinBlock:         big.NewInt(12_244_000),
 		LondonBlock:         big.NewInt(12_965_000),
 		Ethash:              new(EthashConfig),
+	}	
+	    MainnetTrustedCheckpoint = &TrustedCheckpoint{
+		SectionIndex: 389,
+		SectionHead:  common.HexToHash("0x8f96e510cf64abf34095c5aa3937acdf5316de5540945b9688f4a2e083cddc73"),
+		CHTRoot:      common.HexToHash("0xa2362493848d6dbc50dcbbf74c017ea808b8938bfb129217d507bd276950d7ac"),
+		BloomRoot:    common.HexToHash("0x72fc78a841bde7e08e1fb7c187b622c49dc8271db12db748ff5d0f27bdb41413"),
 	}
+
+	// MainnetCheckpointOracle contains a set of configs for the main network oracle.
+	MainnetCheckpointOracle = &CheckpointOracleConfig{
+		Address: common.HexToAddress("0x9a9070028361F7AAbeB3f2F2Dc07F82C4a98A02a"),
+		Signers: []common.Address{
+			common.HexToAddress("0x1b2C260efc720BE89101890E4Db589b44E950527"), // Peter
+			common.HexToAddress("0x78d1aD571A1A09D60D9BBf25894b44e4C8859595"), // Martin
+			common.HexToAddress("0x286834935f4A8Cfb4FF4C77D5770C2775aE2b0E7"), // Zsolt
+			common.HexToAddress("0xb86e2B0Ab5A4B1373e40c51A7C712c70Ba2f9f8E"), // Gary
+			common.HexToAddress("0x0DF8fa387C602AE62559cC4aFa4972A7045d6707"), // Guillaume
+		},
+		Threshold: 2,
 	}
+	
 
 	// RopstenChainConfig contains the chain parameters to run a node on the Ropsten test network.
 	RopstenChainConfig = &ChainConfig{
